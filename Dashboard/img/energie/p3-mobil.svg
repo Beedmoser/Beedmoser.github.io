@@ -1,0 +1,155 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='576.00pt' height='864.00pt' viewBox='0 0 576.00 864.00'>
+<g class='svglite'>
+<defs>
+  <style type='text/css'><![CDATA[
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+    .svglite g.glyphgroup path {
+      fill: inherit;
+      stroke: none;
+    }
+  ]]></style>
+</defs>
+<rect width='100%' height='100%' style='stroke: none; fill: #FFFFFF;'/>
+<defs>
+  <clipPath id='cpMC4wMHw1NzYuMDB8MC4wMHw4NjQuMDA='>
+    <rect x='0.00' y='0.00' width='576.00' height='864.00' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMC4wMHw1NzYuMDB8MC4wMHw4NjQuMDA=)'>
+<rect x='0.00' y='0.00000000000011' width='576.00' height='864.00' style='stroke-width: 1.07; stroke: #FFFFFF; fill: #FFFFFF;' />
+</g>
+<defs>
+  <clipPath id='cpNDguNjV8NTYwLjU2fDE1Mi43N3w3ODkuMTY='>
+    <rect x='48.65' y='152.77' width='511.90' height='636.40' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpNDguNjV8NTYwLjU2fDE1Mi43N3w3ODkuMTY=)'>
+</g>
+<g clip-path='url(#cpMC4wMHw1NzYuMDB8MC4wMHw4NjQuMDA=)'>
+</g>
+<defs>
+  <clipPath id='cpNS40OHw1NzAuNTJ8NS40OHw1OTAuOTA='>
+    <rect x='5.48' y='5.48' width='565.04' height='585.42' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpNS40OHw1NzAuNTJ8NS40OHw1OTAuOTA=)'>
+<rect x='5.48' y='5.48' width='565.04' height='585.42' style='stroke-width: 0.00; stroke: none;' />
+</g>
+<g clip-path='url(#cpMC4wMHw1NzYuMDB8MC4wMHw4NjQuMDA=)'>
+</g>
+<defs>
+  <clipPath id='cpNS40OHw1NzAuNTJ8NTkwLjkwfDg1OC41Mg=='>
+    <rect x='5.48' y='590.90' width='565.04' height='267.62' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpNS40OHw1NzAuNTJ8NTkwLjkwfDg1OC41Mg==)'>
+<rect x='5.48' y='590.90' width='565.04' height='267.62' style='stroke-width: 0.00; stroke: #FFFFFF; fill: #FFFFFF;' />
+</g>
+<g clip-path='url(#cpMC4wMHw1NzYuMDB8MC4wMHw4NjQuMDA=)'>
+<text x='48.65' y='162.16' style='font-size: 13.66px; font-style: italic; font-family: "Arial", "Liberation Sans", sans-serif;' textLength='81.50px' lengthAdjust='spacingAndGlyphs'>13.11.–19.11.</text>
+<text x='238.06' y='162.16' style='font-size: 13.66px; font-style: italic; font-family: "Arial", "Liberation Sans", sans-serif;' textLength='78.20px' lengthAdjust='spacingAndGlyphs'>seit 1.1.2026</text>
+<text x='401.87' y='162.16' style='font-size: 13.66px; font-style: italic; font-family: "Arial", "Liberation Sans", sans-serif;' textLength='60.73px' lengthAdjust='spacingAndGlyphs'>Jahr 2025</text>
+<text x='48.65' y='186.68' style='font-size: 13.66px; font-family: "Arial", "Liberation Sans", sans-serif;' textLength='210.20px' lengthAdjust='spacingAndGlyphs'>CH Redispatch-Kosten (Swissgrid)</text>
+<text x='48.65' y='236.78' style='font-size: 13.66px; font-family: "Arial", "Liberation Sans", sans-serif;' textLength='209.44px' lengthAdjust='spacingAndGlyphs'>CH Redispatch-Menge (Swissgrid)</text>
+<text x='48.65' y='286.87' style='font-size: 13.66px; font-family: "Arial", "Liberation Sans", sans-serif;' textLength='154.83px' lengthAdjust='spacingAndGlyphs'>CH Negativpreis-Stunden</text>
+<text x='48.65' y='336.97' style='font-size: 13.66px; font-family: "Arial", "Liberation Sans", sans-serif;' textLength='211.00px' lengthAdjust='spacingAndGlyphs'>CH Kosten Export bei Negativpreis</text>
+<text x='48.65' y='387.06' style='font-size: 13.66px; font-family: "Arial", "Liberation Sans", sans-serif;' textLength='154.08px' lengthAdjust='spacingAndGlyphs'>DE Negativpreis-Stunden</text>
+<text x='48.65' y='437.15' style='font-size: 13.66px; font-family: "Arial", "Liberation Sans", sans-serif;' textLength='210.25px' lengthAdjust='spacingAndGlyphs'>DE Kosten Export bei Negativpreis</text>
+<text x='48.65' y='487.25' style='font-size: 13.66px; font-family: "Arial", "Liberation Sans", sans-serif;' textLength='108.53px' lengthAdjust='spacingAndGlyphs'>CH Kosten Import</text>
+<text x='48.65' y='537.34' style='font-size: 13.66px; font-family: "Arial", "Liberation Sans", sans-serif;' textLength='107.78px' lengthAdjust='spacingAndGlyphs'>DE Kosten Import</text>
+<text x='48.65' y='206.42' style='font-size: 17.64px; font-weight: bold; font-family: "Arial", "Liberation Sans", sans-serif;' textLength='77.78px' lengthAdjust='spacingAndGlyphs'>389'138 €</text>
+<text x='48.65' y='256.52' style='font-size: 17.64px; font-weight: bold; font-family: "Arial", "Liberation Sans", sans-serif;' textLength='65.69px' lengthAdjust='spacingAndGlyphs'>34 GWh</text>
+<text x='48.65' y='306.61' style='font-size: 17.64px; font-weight: bold; font-family: "Arial", "Liberation Sans", sans-serif;' textLength='48.05px' lengthAdjust='spacingAndGlyphs'>0 Std.</text>
+<text x='48.65' y='356.71' style='font-size: 17.64px; font-weight: bold; font-family: "Arial", "Liberation Sans", sans-serif;' textLength='24.53px' lengthAdjust='spacingAndGlyphs'>0 €</text>
+<text x='48.65' y='406.80' style='font-size: 17.64px; font-weight: bold; font-family: "Arial", "Liberation Sans", sans-serif;' textLength='48.05px' lengthAdjust='spacingAndGlyphs'>0 Std.</text>
+<text x='48.65' y='456.89' style='font-size: 17.64px; font-weight: bold; font-family: "Arial", "Liberation Sans", sans-serif;' textLength='24.53px' lengthAdjust='spacingAndGlyphs'>0 €</text>
+<text x='48.65' y='506.99' style='font-size: 17.64px; font-weight: bold; font-family: "Arial", "Liberation Sans", sans-serif;' textLength='89.25px' lengthAdjust='spacingAndGlyphs'>90.0 Mio. €</text>
+<text x='48.65' y='557.08' style='font-size: 17.64px; font-weight: bold; font-family: "Arial", "Liberation Sans", sans-serif;' textLength='89.25px' lengthAdjust='spacingAndGlyphs'>18.9 Mio. €</text>
+<text x='238.06' y='206.42' style='font-size: 17.64px; font-weight: bold; font-family: "Arial", "Liberation Sans", sans-serif;' textLength='89.25px' lengthAdjust='spacingAndGlyphs'>39.7 Mio. €</text>
+<text x='238.06' y='256.52' style='font-size: 17.64px; font-weight: bold; font-family: "Arial", "Liberation Sans", sans-serif;' textLength='75.50px' lengthAdjust='spacingAndGlyphs'>369 GWh</text>
+<text x='238.06' y='306.61' style='font-size: 17.64px; font-weight: bold; font-family: "Arial", "Liberation Sans", sans-serif;' textLength='67.67px' lengthAdjust='spacingAndGlyphs'>239 Std.</text>
+<text x='238.06' y='356.71' style='font-size: 17.64px; font-weight: bold; font-family: "Arial", "Liberation Sans", sans-serif;' textLength='79.44px' lengthAdjust='spacingAndGlyphs'>9.6 Mio. €</text>
+<text x='238.06' y='406.80' style='font-size: 17.64px; font-weight: bold; font-family: "Arial", "Liberation Sans", sans-serif;' textLength='67.67px' lengthAdjust='spacingAndGlyphs'>475 Std.</text>
+<text x='238.06' y='456.89' style='font-size: 17.64px; font-weight: bold; font-family: "Arial", "Liberation Sans", sans-serif;' textLength='89.25px' lengthAdjust='spacingAndGlyphs'>67.3 Mio. €</text>
+<text x='238.06' y='506.99' style='font-size: 17.64px; font-weight: bold; font-family: "Arial", "Liberation Sans", sans-serif;' textLength='90.23px' lengthAdjust='spacingAndGlyphs'>1.11 Mrd. €</text>
+<text x='238.06' y='557.08' style='font-size: 17.64px; font-weight: bold; font-family: "Arial", "Liberation Sans", sans-serif;' textLength='91.20px' lengthAdjust='spacingAndGlyphs'>3.45 Mrd. €</text>
+<text x='401.87' y='206.42' style='font-size: 17.64px; font-weight: bold; font-family: "Arial", "Liberation Sans", sans-serif;' textLength='9.81px' lengthAdjust='spacingAndGlyphs'>–</text>
+<text x='401.87' y='256.52' style='font-size: 17.64px; font-weight: bold; font-family: "Arial", "Liberation Sans", sans-serif;' textLength='75.50px' lengthAdjust='spacingAndGlyphs'>194 GWh</text>
+<text x='401.87' y='306.61' style='font-size: 17.64px; font-weight: bold; font-family: "Arial", "Liberation Sans", sans-serif;' textLength='67.67px' lengthAdjust='spacingAndGlyphs'>303 Std.</text>
+<text x='401.87' y='356.71' style='font-size: 17.64px; font-weight: bold; font-family: "Arial", "Liberation Sans", sans-serif;' textLength='79.44px' lengthAdjust='spacingAndGlyphs'>5.7 Mio. €</text>
+<text x='401.87' y='406.80' style='font-size: 17.64px; font-weight: bold; font-family: "Arial", "Liberation Sans", sans-serif;' textLength='67.67px' lengthAdjust='spacingAndGlyphs'>576 Std.</text>
+<text x='401.87' y='456.89' style='font-size: 17.64px; font-weight: bold; font-family: "Arial", "Liberation Sans", sans-serif;' textLength='89.25px' lengthAdjust='spacingAndGlyphs'>56.3 Mio. €</text>
+<text x='401.87' y='506.99' style='font-size: 17.64px; font-weight: bold; font-family: "Arial", "Liberation Sans", sans-serif;' textLength='99.06px' lengthAdjust='spacingAndGlyphs'>981.6 Mio. €</text>
+<text x='401.87' y='557.08' style='font-size: 17.64px; font-weight: bold; font-family: "Arial", "Liberation Sans", sans-serif;' textLength='91.20px' lengthAdjust='spacingAndGlyphs'>3.82 Mrd. €</text>
+<text x='48.65' y='49.59' style='font-size: 12.00px; font-family: "Arial", "Liberation Sans", sans-serif;' textLength='287.44px' lengthAdjust='spacingAndGlyphs'>Redispatch-Kosten nur Massnahmen mit Preisangabe</text>
+<text x='48.65' y='62.55' style='font-size: 12.00px; font-family: "Arial", "Liberation Sans", sans-serif;' textLength='251.16px' lengthAdjust='spacingAndGlyphs'>(Swissgrid veröffentlicht Preise erst ab ca. Dez.</text>
+<text x='48.65' y='75.51' style='font-size: 12.00px; font-family: "Arial", "Liberation Sans", sans-serif;' textLength='30.69px' lengthAdjust='spacingAndGlyphs'>2025)</text>
+<text x='48.65' y='88.47' style='font-size: 12.00px; font-family: "Arial", "Liberation Sans", sans-serif;' textLength='262.41px' lengthAdjust='spacingAndGlyphs'>Export bei Negativpreis: Netto-Export je Stunde ×</text>
+<text x='48.65' y='101.43' style='font-size: 12.00px; font-family: "Arial", "Liberation Sans", sans-serif;' textLength='188.97px' lengthAdjust='spacingAndGlyphs'>|Day-Ahead-Preis|, nur Stunden mit</text>
+<text x='48.65' y='114.39' style='font-size: 12.00px; font-family: "Arial", "Liberation Sans", sans-serif;' textLength='96.03px' lengthAdjust='spacingAndGlyphs'>Exportüberschuss</text>
+<text x='48.65' y='127.35' style='font-size: 12.00px; font-family: "Arial", "Liberation Sans", sans-serif;' textLength='270.50px' lengthAdjust='spacingAndGlyphs'>Kosten Import: Netto-Importmenge je Viertelstunde</text>
+<text x='48.65' y='140.31' style='font-size: 12.00px; font-family: "Arial", "Liberation Sans", sans-serif;' textLength='101.72px' lengthAdjust='spacingAndGlyphs'>× Day-Ahead-Preis</text>
+<text x='48.65' y='33.19' style='font-size: 20.00px; font-family: "Arial", "Liberation Sans", sans-serif;' textLength='365.92px' lengthAdjust='spacingAndGlyphs'>Kennzahlen  ·  Woche 13.11.–19.11.2026</text>
+</g>
+<defs>
+  <clipPath id='cpNDguNjV8NTYwLjU2fDY2MS40N3w3ODkuMTY='>
+    <rect x='48.65' y='661.47' width='511.90' height='127.69' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpNDguNjV8NTYwLjU2fDY2MS40N3w3ODkuMTY=)'>
+<rect x='48.65' y='661.47' width='511.90' height='127.69' style='stroke-width: 0.00; stroke: #FFFFFF; fill: #D3D3D3;' />
+<polyline points='48.65,770.03 560.56,770.03 ' style='stroke-width: 0.43; stroke: none;' />
+<polyline points='48.65,731.76 560.56,731.76 ' style='stroke-width: 0.43; stroke: none;' />
+<polyline points='48.65,693.49 560.56,693.49 ' style='stroke-width: 0.43; stroke: none;' />
+<polyline points='48.65,789.16 560.56,789.16 ' style='stroke-width: 0.53; stroke: #FFFFFF;' />
+<polyline points='48.65,750.89 560.56,750.89 ' style='stroke-width: 0.53; stroke: #FFFFFF;' />
+<polyline points='48.65,712.62 560.56,712.62 ' style='stroke-width: 0.53; stroke: #FFFFFF;' />
+<polyline points='48.65,674.35 560.56,674.35 ' style='stroke-width: 0.53; stroke: #FFFFFF;' />
+<polyline points='121.78,789.16 121.78,661.47 ' style='stroke-width: 0.53; stroke: none;' />
+<polyline points='243.67,789.16 243.67,661.47 ' style='stroke-width: 0.53; stroke: none;' />
+<polyline points='365.55,789.16 365.55,661.47 ' style='stroke-width: 0.53; stroke: none;' />
+<polyline points='487.43,789.16 487.43,661.47 ' style='stroke-width: 0.53; stroke: none;' />
+<rect x='82.17' y='708.46' width='79.22' height='80.71' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #2980B9;' />
+<rect x='204.05' y='678.13' width='79.22' height='111.04' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #2980B9;' />
+<rect x='325.94' y='752.07' width='79.22' height='37.09' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #2980B9;' />
+<rect x='447.82' y='718.49' width='79.22' height='70.67' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #2980B9; fill-opacity: 0.45;' />
+<text x='121.78' y='704.54' text-anchor='middle' style='font-size: 14.23px; font-family: "Arial", "Liberation Sans", sans-serif;' textLength='23.72px' lengthAdjust='spacingAndGlyphs'>422</text>
+<text x='243.67' y='674.21' text-anchor='middle' style='font-size: 14.23px; font-family: "Arial", "Liberation Sans", sans-serif;' textLength='23.72px' lengthAdjust='spacingAndGlyphs'>580</text>
+<text x='365.55' y='748.16' text-anchor='middle' style='font-size: 14.23px; font-family: "Arial", "Liberation Sans", sans-serif;' textLength='23.72px' lengthAdjust='spacingAndGlyphs'>194</text>
+<text x='487.43' y='714.58' text-anchor='middle' style='font-size: 14.23px; font-family: "Arial", "Liberation Sans", sans-serif;' textLength='23.72px' lengthAdjust='spacingAndGlyphs'>369</text>
+</g>
+<g clip-path='url(#cpMC4wMHw1NzYuMDB8MC4wMHw4NjQuMDA=)'>
+<polyline points='48.65,789.16 48.65,661.47 ' style='stroke-width: 0.75; stroke: none;' />
+<text x='38.69' y='794.34' text-anchor='end' style='font-size: 14.00px; font-family: "Century Gothic", "URW Gothic", sans-serif;' textLength='7.75px' lengthAdjust='spacingAndGlyphs'>0</text>
+<text x='38.69' y='756.07' text-anchor='end' style='font-size: 14.00px; font-family: "Century Gothic", "URW Gothic", sans-serif;' textLength='23.25px' lengthAdjust='spacingAndGlyphs'>200</text>
+<text x='38.69' y='717.80' text-anchor='end' style='font-size: 14.00px; font-family: "Century Gothic", "URW Gothic", sans-serif;' textLength='23.25px' lengthAdjust='spacingAndGlyphs'>400</text>
+<text x='38.69' y='679.53' text-anchor='end' style='font-size: 14.00px; font-family: "Century Gothic", "URW Gothic", sans-serif;' textLength='23.25px' lengthAdjust='spacingAndGlyphs'>600</text>
+<polyline points='48.65,789.16 48.65,789.16 ' style='stroke-width: 0.75;' />
+<polyline points='48.65,750.89 48.65,750.89 ' style='stroke-width: 0.75;' />
+<polyline points='48.65,712.62 48.65,712.62 ' style='stroke-width: 0.75;' />
+<polyline points='48.65,674.35 48.65,674.35 ' style='stroke-width: 0.75;' />
+<polyline points='48.65,789.16 560.56,789.16 ' style='stroke-width: 0.75; stroke: none;' />
+<polyline points='121.78,789.16 121.78,789.16 ' style='stroke-width: 0.75;' />
+<polyline points='243.67,789.16 243.67,789.16 ' style='stroke-width: 0.75;' />
+<polyline points='365.55,789.16 365.55,789.16 ' style='stroke-width: 0.75;' />
+<polyline points='487.43,789.16 487.43,789.16 ' style='stroke-width: 0.75;' />
+<text x='121.78' y='810.98' text-anchor='middle' style='font-size: 14.00px; font-family: "Century Gothic", "URW Gothic", sans-serif;' textLength='31.00px' lengthAdjust='spacingAndGlyphs'>2023</text>
+<text x='243.67' y='810.98' text-anchor='middle' style='font-size: 14.00px; font-family: "Century Gothic", "URW Gothic", sans-serif;' textLength='31.00px' lengthAdjust='spacingAndGlyphs'>2024</text>
+<text x='365.55' y='810.98' text-anchor='middle' style='font-size: 14.00px; font-family: "Century Gothic", "URW Gothic", sans-serif;' textLength='31.00px' lengthAdjust='spacingAndGlyphs'>2025</text>
+<text x='487.43' y='810.98' text-anchor='middle' style='font-size: 14.00px; font-family: "Century Gothic", "URW Gothic", sans-serif;' textLength='31.00px' lengthAdjust='spacingAndGlyphs'>2026</text>
+<text x='15.44' y='627.76' style='font-size: 20.00px; font-family: "Century Gothic", "URW Gothic", sans-serif;' textLength='401.83px' lengthAdjust='spacingAndGlyphs'>CH Redispatch-Menge je Jahr (GWh), nur</text>
+<text x='15.44' y='649.36' style='font-size: 20.00px; font-family: "Century Gothic", "URW Gothic", sans-serif;' textLength='172.56px' lengthAdjust='spacingAndGlyphs'>Übertragungsnetz</text>
+<text x='560.56' y='826.23' text-anchor='end' style='font-size: 11.20px; font-family: "Century Gothic", "URW Gothic", sans-serif;' textLength='483.06px' lengthAdjust='spacingAndGlyphs'>Quelle: Swissgrid Redispatch, Energy-Charts Day-Ahead (CH, DE-LU)  |  Erstellt: 20.11.2026</text>
+</g>
+</g>
+</svg>
