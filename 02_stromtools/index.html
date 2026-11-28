@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.11.9">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Beat Moser">
+
+<title>stromtools: Schweizer Stromdaten verständlich gemacht – Beat Moser</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../img/favicon.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-f481e559f77b49b2c09cf266d1fd2b38.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken",
+    "search-label": "Suchen"
+  }
+}</script>
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Zum Hauptinhalt springen</a>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark" aria-label="Website">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../img/BM Logo.JPG" alt="" class="navbar-logo light-content">
+    <img src="../img/BM Logo.JPG" alt="" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Beat Moser</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Navigation umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="mailto:beat.moser.m@gmailx.com"> <i class="bi bi-envelope" role="img" aria-label="email">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" aria-label="Symbolleiste">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="Pfad"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../02_stromtools/index.html">stromtools: Schweizer Stromdaten verständlich gemacht</a></li></ol></nav>
+        <a class="flex-grow-1" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto" aria-label="Bereich">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Suchen"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../03_staat-religion/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Staat und Religion in den Kantonen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-controls="quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-1-label">Dashboard</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-1" aria-labelledby="quarto-sidebar-section-1-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Dashboard/Energie.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Energie-Dashboard</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../01_projects/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text" id="quarto-sidebar-section-2-label">A Brief Introduction to Terra in R</span></a>
+            <button type="button" class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-controls="quarto-sidebar-section-2" aria-expanded="true" aria-label="Abschnitt umschalten: A Brief Introduction to Terra in R">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
+      </div>
+      <ul id="quarto-sidebar-section-2" aria-labelledby="quarto-sidebar-section-2-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../01_projects/01_Overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../01_projects/02_sv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SpatVectors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../01_projects/03_sr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SpatRaster</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../01_projects/05_MapsShades.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Maps with Shades and Colors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../01_projects/06_DM.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Manipulation</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../02_stromtools/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text" id="quarto-sidebar-section-3-label">stromtools: Schweizer Stromdaten verständlich gemacht</span></a>
+            <button type="button" class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-controls="quarto-sidebar-section-3" aria-expanded="true" aria-label="Abschnitt umschalten: stromtools: Schweizer Stromdaten verständlich gemacht">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
+      </div>
+      <ul id="quarto-sidebar-section-3" aria-labelledby="quarto-sidebar-section-3-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../02_stromtools/referenz.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">stromtools: Funktionsreferenz</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../09_cv/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Curriculum vitae</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
+    <h2 id="toc-title">Inhalt</h2>
+   
+  <ul>
+  <li><a href="#wozu-gibt-es-stromtools" id="toc-wozu-gibt-es-stromtools" class="nav-link active" data-scroll-target="#wozu-gibt-es-stromtools"><span class="header-section-number">1</span> Wozu gibt es stromtools?</a></li>
+  <li><a href="#was-man-damit-sehen-kann" id="toc-was-man-damit-sehen-kann" class="nav-link" data-scroll-target="#was-man-damit-sehen-kann"><span class="header-section-number">2</span> Was man damit sehen kann</a>
+  <ul class="collapse">
+  <li><a href="#die-letzte-woche-woher-kommt-der-strom" id="toc-die-letzte-woche-woher-kommt-der-strom" class="nav-link" data-scroll-target="#die-letzte-woche-woher-kommt-der-strom"><span class="header-section-number">2.1</span> Die letzte Woche: Woher kommt der Strom?</a></li>
+  <li><a href="#der-winter-wie-gross-ist-die-lücke" id="toc-der-winter-wie-gross-ist-die-lücke" class="nav-link" data-scroll-target="#der-winter-wie-gross-ist-die-lücke"><span class="header-section-number">2.2</span> Der Winter: Wie gross ist die Lücke?</a></li>
+  <li><a href="#co₂-was-ändert-sich-mit-den-importen" id="toc-co₂-was-ändert-sich-mit-den-importen" class="nav-link" data-scroll-target="#co₂-was-ändert-sich-mit-den-importen"><span class="header-section-number">2.3</span> CO₂: Was ändert sich mit den Importen?</a></li>
+  <li><a href="#europa-im-winter-preise-im-vergleich" id="toc-europa-im-winter-preise-im-vergleich" class="nav-link" data-scroll-target="#europa-im-winter-preise-im-vergleich"><span class="header-section-number">2.4</span> Europa im Winter: Preise im Vergleich</a></li>
+  <li><a href="#netzstabilität-wie-stark-schwankt-die-frequenz" id="toc-netzstabilität-wie-stark-schwankt-die-frequenz" class="nav-link" data-scroll-target="#netzstabilität-wie-stark-schwankt-die-frequenz"><span class="header-section-number">2.5</span> Netzstabilität: Wie stark schwankt die Frequenz?</a></li>
+  </ul></li>
+  <li><a href="#woher-die-daten-kommen" id="toc-woher-die-daten-kommen" class="nav-link" data-scroll-target="#woher-die-daten-kommen"><span class="header-section-number">3</span> Woher die Daten kommen</a></li>
+  <li><a href="#wie-es-funktioniert" id="toc-wie-es-funktioniert" class="nav-link" data-scroll-target="#wie-es-funktioniert"><span class="header-section-number">4</span> Wie es funktioniert</a></li>
+  <li><a href="#worauf-man-sich-verlassen-kann" id="toc-worauf-man-sich-verlassen-kann" class="nav-link" data-scroll-target="#worauf-man-sich-verlassen-kann"><span class="header-section-number">5</span> Worauf man sich verlassen kann</a></li>
+  <li><a href="#was-stromtools-nicht-ist" id="toc-was-stromtools-nicht-ist" class="nav-link" data-scroll-target="#was-stromtools-nicht-ist"><span class="header-section-number">6</span> Was stromtools nicht ist</a></li>
+  <li><a href="#kleines-glossar" id="toc-kleines-glossar" class="nav-link" data-scroll-target="#kleines-glossar"><span class="header-section-number">7</span> Kleines Glossar</a></li>
+  <li><a href="#stand-und-kontakt" id="toc-stand-und-kontakt" class="nav-link" data-scroll-target="#stand-und-kontakt"><span class="header-section-number">8</span> Stand und Kontakt</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content" tabindex="-1">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">stromtools: Schweizer Stromdaten verständlich gemacht</h1>
+<p class="subtitle lead">Ein R-Werkzeugkasten, der öffentliche Energiedaten holt, prüft und in einheitliche Grafiken verwandelt</p>
+</div>
+
+
+
+<div class="quarto-title-meta column-body">
+
+    <div>
+    <div class="quarto-title-meta-heading">Autor</div>
+    <div class="quarto-title-meta-contents">
+             <p>Beat Moser </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">1. Oktober 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<style>
+.st-logo { float: right; margin: 0 0 16px 24px; max-width: 170px; }
+</style>
+<p><img src="images/stromtools-logo.png" alt="stromtools-Logo: Schweizer Steckdose" class="st-logo"></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tipp</span>Auf einen Blick
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>stromtools</strong> ist ein Paket für die Programmiersprache R. Es holt Daten zur Schweizer und europäischen Stromversorgung direkt bei den offiziellen Stellen ab, rechnet sie nachvollziehbar um und zeichnet daraus Grafiken, die alle gleich aufgebaut sind. Jede Zahl lässt sich bis zur Quelle zurückverfolgen.</p>
+</div>
+</div>
+<section id="wozu-gibt-es-stromtools" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Wozu gibt es stromtools?</h1>
+<p>Wer sich mit der Schweizer Stromversorgung beschäftigt, stösst immer wieder auf dieselben Fragen:</p>
+<ul>
+<li>Woher kommt der Strom, den die Schweiz diese Woche verbraucht hat?</li>
+<li>Wie gross ist die Lücke im Winter, heute gemessen und nach der Planung der Energiestrategie 2050?</li>
+<li>Wie viel CO₂ steckt im Strom, wenn man die Importe mitrechnet?</li>
+<li>Wie teuer ist Strom bei uns im Vergleich zu den Nachbarn?</li>
+<li>Wie stabil ist das Netz?</li>
+</ul>
+<p>Die Daten dazu sind öffentlich, aber verstreut: beim Bundesamt für Energie (BFE), bei Swissgrid, bei der ElCom, bei Eurostat, beim Fraunhofer-Institut und bei der Internationalen Atomenergie-Agentur. Jede Stelle hat ein anderes Format, andere Begriffe und andere Zeiträume.</p>
+<p>stromtools nimmt diese Arbeit ab. Es ist entstanden, weil ich für mehrere eigene Projekte immer wieder dieselben Daten geholt und aufbereitet habe: ein Energie-Dashboard, Faktenblätter zur Energiestrategie und Grafiken für Vorträge. Jetzt geschieht das an einer Stelle, einmal sauber geprüft, und alle Projekte benutzen dieselben Bausteine.</p>
+</section>
+<section id="was-man-damit-sehen-kann" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Was man damit sehen kann</h1>
+<p>Fünf Beispiele, alle mit stromtools erzeugt.</p>
+<section id="die-letzte-woche-woher-kommt-der-strom" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="die-letzte-woche-woher-kommt-der-strom"><span class="header-section-number">2.1</span> Die letzte Woche: Woher kommt der Strom?</h2>
+<p><img src="images/beispiel-produktionsmix.png" class="img-fluid" alt="Stromproduktion und Verbrauch der Schweiz in den letzten sieben Tagen mit Day-Ahead-Preis"></p>
+<p>Die farbigen Flächen zeigen die Produktion nach Kraftwerksart, die violette Linie den Verbrauch. Die orange Linie ist der Börsenpreis für den nächsten Tag (Day-Ahead) auf einer eigenen Achse rechts. Rote Flächen oben zeigen, wann die Schweiz netto importieren musste. Man sieht zum Beispiel, wie der Preis am Sonntagmittag bei viel Solarstrom unter null fällt.</p>
+</section>
+<section id="der-winter-wie-gross-ist-die-lücke" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="der-winter-wie-gross-ist-die-lücke"><span class="header-section-number">2.2</span> Der Winter: Wie gross ist die Lücke?</h2>
+<p><img src="images/beispiel-winterbilanz.png" class="img-fluid" alt="Winterbilanz Schweiz, gemessen seit 2000 und geplant bis 2050"></p>
+<p>Produktion minus Verbrauch in den Monaten Januar, Februar und Dezember. Schwarz ist gemessen, rot ist die Planung. Der rote Stempel «Importstrategie» steht auf jeder Grafik mit Planzahlen. Er erinnert daran, dass die Planung im Winter auf Importe setzt.</p>
+</section>
+<section id="co₂-was-ändert-sich-mit-den-importen" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="co₂-was-ändert-sich-mit-den-importen"><span class="header-section-number">2.3</span> CO₂: Was ändert sich mit den Importen?</h2>
+<p><img src="images/beispiel-co2-mit-importen.png" class="img-fluid" alt="CO₂-Intensität des Stroms 2025 in fünf Ländern, mit und ohne Importe"></p>
+<p>Grau ist der CO₂-Gehalt des im Land produzierten Stroms. Schwarz kommt dazu, was die Importe zusätzlich bringen, weiss umrandet ist, was sie senken. Die rote Linie ist der tatsächliche Wert des verbrauchten Stroms. Die Schweizer Produktion ist sehr sauber, mit den Importen steigt der Wert um mehr als die Hälfte.</p>
+</section>
+<section id="europa-im-winter-preise-im-vergleich" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="europa-im-winter-preise-im-vergleich"><span class="header-section-number">2.4</span> Europa im Winter: Preise im Vergleich</h2>
+<p><img src="images/beispiel-preiskarte.png" class="img-fluid" alt="Karte der mittleren Grosshandelspreise für Strom in Europa im Winter 2025/26"></p>
+<p>Der mittlere Börsenpreis im letzten Winter, Land für Land. Die Schweiz lag beim teuren Südosten Europas, nicht bei Frankreich. Eine zweite Karte zeigt auf dieselbe Weise den CO₂-Gehalt der Stromproduktion.</p>
+</section>
+<section id="netzstabilität-wie-stark-schwankt-die-frequenz" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="netzstabilität-wie-stark-schwankt-die-frequenz"><span class="header-section-number">2.5</span> Netzstabilität: Wie stark schwankt die Frequenz?</h2>
+<p><img src="images/beispiel-netzfrequenz.png" class="img-fluid" alt="Tiefster und höchster Wert der Netzfrequenz je Tag über ein Jahr"></p>
+<p>Im europäischen Stromnetz schwingt der Strom mit 50 Hertz. Weicht die Frequenz ab, stimmen Produktion und Verbrauch nicht überein. Die Grafik zeigt für jeden Tag des letzten Jahres den tiefsten und höchsten Sekundenwert. Die Alarmgrenze von ±0,2 Hz wurde nie erreicht. Die grössten Ausschläge kamen meist kurz nach einer vollen Stunde, wenn der Stromhandel seine Fahrpläne wechselt.</p>
+</section>
+</section>
+<section id="woher-die-daten-kommen" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Woher die Daten kommen</h1>
+<p>stromtools holt die Daten direkt aus dem Internet und legt eine Kopie ab (Cache). Ein zweiter Lauf geht dadurch schnell und belastet die Anbieter nicht.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Bereich</th>
+<th>Quelle</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Produktion, Verbrauch, Preise, Grenzflüsse, Netzfrequenz</td>
+<td>Energy-Charts, Fraunhofer-Institut für Solare Energiesysteme ISE</td>
+</tr>
+<tr class="even">
+<td>Elektrizitätsbilanz, Statistik der erneuerbaren Energien, Speicherseen, Energieperspektiven 2050+</td>
+<td>Bundesamt für Energie (BFE), opendata.swiss und Publikationsdatenbank</td>
+</tr>
+<tr class="odd">
+<td>Redispatch (Eingriffe ins Netz)</td>
+<td>Swissgrid</td>
+</tr>
+<tr class="even">
+<td>Strompreise der Haushalte</td>
+<td>ElCom (Schweiz), Eurostat (Nachbarländer)</td>
+</tr>
+<tr class="odd">
+<td>Gasspeicher</td>
+<td>AGSI, Gas Infrastructure Europe</td>
+</tr>
+<tr class="even">
+<td>Kernkraftwerke weltweit</td>
+<td>Internationale Atomenergie-Agentur (IAEA), World Nuclear Association</td>
+</tr>
+<tr class="odd">
+<td>CO₂ je Kraftwerksart</td>
+<td>Weltklimarat IPCC, Lebenszyklus-Werte</td>
+</tr>
+<tr class="even">
+<td>Planwerte</td>
+<td>Energieperspektiven 2050+ des BFE, angepasst an das neue Stromgesetz (Mantelerlass); eigene Annahmen, als solche gekennzeichnet</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="wie-es-funktioniert" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Wie es funktioniert</h1>
+<p>stromtools arbeitet in drei Schritten. Jeder Schritt übernimmt das fertige Ergebnis des vorherigen.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+
+<pre class="mermaid mermaid-js">flowchart LR
+  A["1. Abrufen&lt;br/&gt;Daten holen&lt;br/&gt;und ablegen"] --&gt; B["2. Aufbereiten&lt;br/&gt;einheitliche Begriffe,&lt;br/&gt;Summen, Monate, CO₂"]
+  B --&gt; C["3. Darstellen&lt;br/&gt;Grafik im&lt;br/&gt;einheitlichen Stil"]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<ol type="1">
+<li><strong>Abrufen:</strong> Für jede Quelle gibt es eine Funktion, die die Daten holt, zum Beispiel <code>fetch_ec_public_power()</code> für die Produktion von Energy-Charts.</li>
+<li><strong>Aufbereiten:</strong> Die Daten bekommen dieselben deutschen Begriffe wie die Statistik des BFE. Gemessene Werte und Planwerte laufen durch dieselben Rechnungen und sind deshalb direkt vergleichbar.</li>
+<li><strong>Darstellen:</strong> Jede Grafikfunktion beginnt mit <code>grafik_</code> und liefert eine fertige Grafik, die sich bei Bedarf weiter anpassen lässt.</li>
+</ol>
+<p>Alle Funktionen mit Beschreibung, Aufruf und Argumenten stehen in der <a href="../02_stromtools/referenz.html">Funktionsreferenz</a>.</p>
+<p>Ein Beispiel, wie das in R aussieht:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stromtools)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Abrufen: Produktion der Schweiz der letzten sieben Tage</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>mix <span class="ot">&lt;-</span> <span class="fu">fetch_ec_public_power</span>(<span class="st">"ch"</span>, <span class="fu">Sys.Date</span>() <span class="sc">-</span> <span class="dv">7</span>, <span class="fu">Sys.Date</span>() <span class="sc">-</span> <span class="dv">1</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. und 3. Aufbereiten und als Grafik darstellen</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">grafik_produktionsmix</span>(<span class="fu">produktionsmix_de</span>(mix), <span class="at">last =</span> <span class="fu">last_aus_mix</span>(mix))</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="worauf-man-sich-verlassen-kann" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Worauf man sich verlassen kann</h1>
+<ul>
+<li><strong>Gemessen und geplant sind getrennt.</strong> Gemessenes ist schwarz und durchgezogen, Geplantes rot und gestrichelt. Grafiken mit Planzahlen tragen einen Stempel.</li>
+<li><strong>Jede Grafik nennt ihre Quellen,</strong> so genau, dass man die Zahl selbst nachschlagen kann.</li>
+<li><strong>Neue Quellen werden geprüft,</strong> bevor sie an alte angehängt werden: Für ein Jahr, das in beiden vorkommt, müssen die Werte übereinstimmen.</li>
+<li><strong>Fehler werden offen ausgewiesen.</strong> Beim Übernehmen älterer Auswertungen sind zum Beispiel eine doppelt gezählte Mehrwertsteuer und ein fester statt jährlicher Wechselkurs aufgefallen. Beides ist korrigiert und dokumentiert.</li>
+<li><strong>Keine versteckten Annahmen:</strong> Wo Daten fehlen, steht das in der Grafik, zum Beispiel «Kosten = Untergrenze», statt dass Lücken still aufgefüllt werden.</li>
+<li><strong>Dieselbe Methode überall:</strong> Alle CO₂-Werte beruhen auf denselben Faktoren, damit die Zahlen zueinander passen.</li>
+</ul>
+</section>
+<section id="was-stromtools-nicht-ist" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Was stromtools nicht ist</h1>
+<ul>
+<li><strong>Kein amtliches Zahlenwerk.</strong> Die Daten stammen aus offiziellen Quellen, die Auswertungen sind aber meine eigenen. Die Planwerte enthalten meine Annahmen zum neuen Stromgesetz.</li>
+<li><strong>Keine Echtzeit-Überwachung.</strong> Die Grafiken zeigen abgeschlossene Zeiträume, in der Regel bis gestern.</li>
+<li><strong>Kein Ersatz für die Daten der Netzbetreiber.</strong> Ursachen von Netzereignissen lassen sich aus öffentlichen Daten nur eingrenzen, nicht beweisen.</li>
+</ul>
+</section>
+<section id="kleines-glossar" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Kleines Glossar</h1>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Begriff</th>
+<th>Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>TWh, GWh, GW</strong></td>
+<td>Terawattstunde (Milliarde Kilowattstunden) und Gigawattstunde sind Energiemengen. Gigawatt ist eine Leistung, also Energie pro Zeit. Die Schweiz verbraucht rund 60 TWh pro Jahr.</td>
+</tr>
+<tr class="even">
+<td><strong>Day-Ahead-Preis</strong></td>
+<td>Börsenpreis für Strom, der am nächsten Tag geliefert wird, Stunde für Stunde festgelegt.</td>
+</tr>
+<tr class="odd">
+<td><strong>Negativer Preis</strong></td>
+<td>Es gibt so viel Strom, dass Produzenten fürs Abnehmen bezahlen.</td>
+</tr>
+<tr class="even">
+<td><strong>Residuallast</strong></td>
+<td>Verbrauch minus Wind- und Solarstrom: der Teil, den steuerbare Kraftwerke liefern müssen.</td>
+</tr>
+<tr class="odd">
+<td><strong>Redispatch</strong></td>
+<td>Der Netzbetreiber greift ein und lässt Kraftwerke mehr oder weniger produzieren, um Leitungen zu entlasten.</td>
+</tr>
+<tr class="even">
+<td><strong>Netzfrequenz</strong></td>
+<td>Takt des Wechselstroms, in Europa 50 Hertz. Sinkt sie, fehlt Strom; steigt sie, gibt es zu viel.</td>
+</tr>
+<tr class="odd">
+<td><strong>g CO₂/kWh</strong></td>
+<td>Gramm CO₂ pro Kilowattstunde Strom, über den ganzen Lebenszyklus der Kraftwerke.</td>
+</tr>
+<tr class="even">
+<td><strong>Mantelerlass</strong></td>
+<td>Das 2024 angenommene Stromgesetz mit den neuen Ausbauzielen für erneuerbare Energien, in Kraft seit 2025.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="stand-und-kontakt" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Stand und Kontakt</h1>
+<p>stromtools ist zurzeit ein privates Paket und wird laufend erweitert. Über 100 Funktionen (<a href="../02_stromtools/referenz.html">Funktionsreferenz</a>) erzeugen heute 38 Grafiken zu Preisen, Versorgung, Ausbau, CO₂, Verbrauch und Kernenergie.</p>
+<p>Fragen und Hinweise gern an Beat Moser.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Kopiert");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Kopiert");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+      window.quartoDecorateExternalLinks = function (root) {
+     var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+          if (!link.classList.contains('no-external-icon')) {
+          }
+        }
+      }
+      };
+      window.quartoDecorateExternalLinks(window.document);
+    // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+    // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+    const hideOnEscAndFocusOut = {
+      name: 'hideOnEscAndFocusOut',
+      defaultValue: true,
+      fn(instance) {
+        const dismiss = () => {
+          // A show scheduled by the trigger delay would otherwise reopen it
+          instance.clearDelayTimeouts();
+          instance.hide();
+        };
+        const onKeyDown = (event) => {
+          if (event.key !== 'Escape') {
+            return;
+          }
+          // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+          // except an open reveal.js slide menu, which Esc should close too.
+          // The menu handles keys only when its keyboard option is on.
+          const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+            window.Reveal.getConfig().menu?.keyboard !== false;
+          if (!menuHandlesEsc) {
+            event.stopPropagation();
+          }
+          if (instance.popper.contains(window.document.activeElement)) {
+            // Disabled while refocusing so the focus trigger does not reopen it
+            instance.disable();
+            instance.reference.focus();
+            instance.enable();
+          }
+          dismiss();
+        };
+        const onFocusOut = (event) => {
+          const target = event.relatedTarget;
+          if (target && !instance.reference.contains(target) &&
+              !instance.popper.contains(target)) {
+            dismiss();
+          }
+        };
+        // On the trigger too: a click trigger (code-annotations: select) has no
+        // blur handling. Attached for the instance's lifetime so leaving the
+        // trigger also cancels a show still pending on the trigger delay.
+        instance.reference.addEventListener('focusout', onFocusOut);
+        return {
+          onShow() {
+            window.document.addEventListener('keydown', onKeyDown, true);
+            instance.popper.addEventListener('focusout', onFocusOut);
+          },
+          onHide() {
+            window.document.removeEventListener('keydown', onKeyDown, true);
+            instance.popper.removeEventListener('focusout', onFocusOut);
+          },
+          onDestroy() {
+            instance.reference.removeEventListener('focusout', onFocusOut);
+          },
+        };
+      },
+    };
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+        plugins: [hideOnEscAndFocusOut],
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          // Each band is positioned against its own containing block, which is
+          // not the offsetParent of the lines, so place it from client rects.
+          const placeBand = (band, firstEl, lastEl, codeBlock) => {
+            const container = band.offsetParent;
+            if (container === null) {
+              return;
+            }
+            const containerRect = container.getBoundingClientRect();
+            // Reveal.js scales slides with a transform, so convert client
+            // pixels back to the CSS pixels of the container.
+            const scale = containerRect.height / container.offsetHeight || 1;
+            const firstRect = firstEl.getBoundingClientRect();
+            const lastRect = lastEl.getBoundingClientRect();
+            const top = (firstRect.top - containerRect.top) / scale - container.clientTop + container.scrollTop;
+            const height = (lastRect.bottom - firstRect.top) / scale;
+            band.style.top = top - 2 + "px";
+            band.style.height = height + 4 + "px";
+            if (codeBlock) {
+              // Without the copy button wrapper, the containing block is wider
+              // than the code block, so span the code block explicitly.
+              const blockRect = codeBlock.getBoundingClientRect();
+              band.style.left = (blockRect.left - containerRect.left) / scale - container.clientLeft + container.scrollLeft + "px";
+              band.style.width = blockRect.width / scale + "px";
+            }
+          };
+          if (lineIds.length > 0) {
+            const el = window.document.getElementById(lineIds[0]);
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const parent = el.parentElement.parentElement;
+            // cook up a div (if necessary) and position it
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            placeBand(div, el, lastEl, parent.closest("div.sourceCode") || parent);
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            placeBand(gutterDiv, el, lastEl);
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Scrollbarer Code","output":"Scrollbare Ausgabe"};
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>© 2025 Beat Moser</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
